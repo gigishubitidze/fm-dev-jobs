@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script>
+        // Get the current path without the domain or leading slash
+        const pathname = window.location.pathname.replace(/^\/fm-dev-jobs/, '');
+
+        // Redirect to the React app's index.html with the correct path appended
+        window.location.href = "/fm-dev-jobs" + pathname + window.location.search + window.location.hash;
+    </script>
+</head>
+
+<body>
+    <h1>Redirecting...</h1>
+    <p>If you're not redirected, <a href="/fm-dev-jobs">click here</a>.</p>
+</body>
+
+</html>
