@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // Avoid redirecting recursively by ensuring the path includes the basename
+      const target = "/fm-dev-jobs";
+      const currentPath = window.location.pathname;
+
+      if (!currentPath.startsWith(target)) {
+        // Redirect to the correct path, preserving query parameters and hashes
+        const newPath = target + currentPath + window.location.search + window.location.hash;
+        window.location.replace(newPath);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Redirecting...</h1>
+    <p>If you're not redirected automatically, <a href="/fm-dev-jobs">click here</a>.</p>
+  </body>
+</html>
