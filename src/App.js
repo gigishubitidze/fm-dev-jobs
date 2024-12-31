@@ -8,18 +8,23 @@ import Jobs from "./pages/Jobs";
 import Job from "./pages/Job/index";
 import NotFound from "./pages/NotFound";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        { index: true, element: <Navigate to="jobs" replace /> },
+        { path: "jobs", element: <Jobs /> },
+        { path: "jobs/:jobId", element: <Job /> },
+        { path: "*", element: <NotFound /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      { index: true, element: <Navigate to="jobs" replace /> },
-      { path: "jobs", element: <Jobs /> },
-      { path: "jobs/:jobId", element: <Job /> },
-      { path: "*", element: <NotFound /> },
-    ],
-  },
-]);
+    basename: process.env.NODE_ENV === "development" ? "/" : "/fm-dev-jobs",
+  }
+);
 
 function App() {
   return <RouterProvider router={router} future={{}} />;

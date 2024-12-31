@@ -22,7 +22,10 @@ const ButtonContainer = styled.div`
 
 function Jobs() {
   const [query, setQuery] = useState({ limit: 12 });
-  const { data, isLoading, error } = useData("/data.json", query);
+  const { data, isLoading, error } = useData(
+    `${process.env.PUBLIC_URL}/data.json`,
+    query
+  );
 
   const handleSearchChange = (filters) => {
     setQuery((prevQuery) => ({ ...prevQuery, ...filters }));
