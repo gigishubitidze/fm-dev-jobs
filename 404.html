@@ -5,24 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirecting...</title>
     <script type="text/javascript">
-      // Extract the pathname, search, and hash
-      var pathname = window.location.pathname || "";
-      var search = window.location.search || "";
-      var hash = window.location.hash || "";
+      // Avoid redirecting recursively by ensuring the path includes the basename
+      const target = "/fm-dev-jobs";
+      const currentPath = window.location.pathname;
 
-      // Redirect all 404 requests to index.html with the current path appended
-      var redirectPath = "/fm-dev-jobs" + pathname + search + hash;
-
-      // Redirect to the proper index.html route
-      window.location.href = redirectPath;
+      if (!currentPath.startsWith(target)) {
+        // Redirect to the correct path, preserving query parameters and hashes
+        const newPath = target + currentPath + window.location.search + window.location.hash;
+        window.location.replace(newPath);
+      }
     </script>
   </head>
   <body>
     <h1>Redirecting...</h1>
-    <p>If you are not redirected, <a id="redirect-link" href="/">click here</a>.</p>
-    <script>
-      // Update the link dynamically in case of script failure
-      document.getElementById("redirect-link").href = redirectPath;
-    </script>
+    <p>If you're not redirected automatically, <a href="/fm-dev-jobs">click here</a>.</p>
   </body>
 </html>
