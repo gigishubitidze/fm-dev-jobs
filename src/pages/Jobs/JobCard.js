@@ -73,7 +73,6 @@ function JobCard({
       <LogoContainer background={logoBackground}>
         <img src={sanitizeLogoPath(logo)} alt={`${company} logo`} />
       </LogoContainer>
-      {/* {id} */}
       <Attributes postedAt={postedAt} contract={contract} />
       <PositionLink
         color={theme.colors.jobCardTitle}

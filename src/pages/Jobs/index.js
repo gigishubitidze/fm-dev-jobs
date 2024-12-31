@@ -7,6 +7,8 @@ import useData from "../../hooks/useData";
 import SearchResult from "./SearchResult";
 import Loader from "../../components/Loader";
 
+const URL = `${process.env.PUBLIC_URL}/data.json`;
+
 const Main = styled.main`
   margin-top: -40px;
 `;
@@ -22,10 +24,7 @@ const ButtonContainer = styled.div`
 
 function Jobs() {
   const [query, setQuery] = useState({ limit: 12 });
-  const { data, isLoading, error } = useData(
-    `${process.env.PUBLIC_URL}/data.json`,
-    query
-  );
+  const { data, isLoading, error } = useData(URL, query);
 
   const handleSearchChange = (filters) => {
     setQuery((prevQuery) => ({ ...prevQuery, ...filters }));

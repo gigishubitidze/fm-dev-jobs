@@ -3,6 +3,7 @@ import { H2, Text } from "../../theme/Typography";
 import { ButtonSecondary } from "../../components/Button";
 import styled from "styled-components";
 import Paper from "../../components/Paper";
+import { sanitizeLogoPath } from "../../utils/sanitizeLogoPath";
 
 const HeaderContainer = styled(Paper)`
   height: 205px;
@@ -68,9 +69,6 @@ const HeaderTextContainer = styled.div`
 `;
 
 function Header({ logoBackground, company, logo, website }) {
-  const sanitizeLogoPath = (path) =>
-    path.startsWith("./") ? path.replace("./", "/") : path;
-
   const handleClick = () => {
     window.open(website, "_blank", "noopener,noreferrer");
   };

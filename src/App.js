@@ -8,6 +8,8 @@ import Jobs from "./pages/Jobs";
 import Job from "./pages/Job/index";
 import NotFound from "./pages/NotFound";
 
+const basename = process.env.PUBLIC_URL;
+
 const router = createBrowserRouter(
   [
     {
@@ -22,7 +24,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: process.env.NODE_ENV === "development" ? "/" : "/fm-dev-jobs",
+    basename,
   }
 );
 
